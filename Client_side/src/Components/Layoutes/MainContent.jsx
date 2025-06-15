@@ -5,7 +5,7 @@ import DashboardNavbar from "./DashboardNavbar";
 const MainContent = () => {
   return (
     <div className="flex-1 ">
-      <DashboardNavbar  />
+      <div className="sticky top-0 z-50"><DashboardNavbar  /></div>
       <div >
         <Outlet />
       </div>
