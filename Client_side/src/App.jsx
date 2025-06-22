@@ -1,14 +1,15 @@
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Login from "./Components/Pages/Login";
 
-import './App.css'
 
-function App() {
- 
-
+const App = () => {
   return (
-    <>
-      
-    </>
-  )
-}
+    <div>
+      {/* <Outlet /> */}
+      <Login/>
+    </div>
+  );
+};
 
-export default App
+export default App;

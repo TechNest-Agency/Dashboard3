@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
   FiHome, FiPieChart, FiUsers, FiShoppingCart, FiBookOpen, FiTruck, 
-  FiFileText, FiChevronDown, FiChevronRight, FiLayers, FiFile,
-  FiUser, FiLock, FiLayout, FiLogIn, FiSliders, FiMessageSquare,
-  FiCheckSquare, FiTable, FiBarChart, FiShield
+  FiFileText, FiChevronDown, FiChevronRight, FiLayers, FiFile
 } from 'react-icons/fi';
 
 const SideBar = () => {
@@ -129,19 +127,38 @@ const SideBar = () => {
 
                     {/* Front Pages */}
                     <li>
-                        <NavLink
-                            to="/front-pages"
-                            className={({ isActive }) =>
-                                `flex items-center p-3 rounded-lg transition-colors ${
-                                    isActive
-                                        ? 'text-sky-600 bg-sky-50'
-                                        : 'text-gray-700 hover:bg-gray-100'
-                                }`
-                            }
+                        <button 
+                            onClick={() => toggleSubMenu('frontPages')}
+                            className="flex items-center w-full p-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                         >
                             <FiFileText className="w-5 h-5 mr-3" />
                             <span className="font-medium">Front Pages</span>
-                        </NavLink>
+                            {expandedItems.frontPages ? (
+                                <FiChevronDown className="w-5 h-5 ml-auto" />
+                            ) : (
+                                <FiChevronRight className="w-5 h-5 ml-auto" />
+                            )}
+                        </button>
+
+                        {expandedItems.frontPages && (
+                            <ul className="mt-2 space-y-1 pl-11">
+                                <li>
+                                    <NavLink
+                                        to="/front-pages/landing"
+                                        className={({ isActive }) =>
+                                            `flex items-center p-2 text-sm rounded-lg transition-colors ${
+                                                isActive
+                                                    ? 'text-sky-600 bg-sky-50'
+                                                    : 'text-gray-600 hover:bg-gray-100'
+                                            }`
+                                        }
+                                    >
+                                        <FiFile className="w-4 h-4 mr-3" />
+                                        Landing Page
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        )}
                     </li>
 
                     {/* Section Divider */}

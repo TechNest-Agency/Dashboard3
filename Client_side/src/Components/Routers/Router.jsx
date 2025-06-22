@@ -1,23 +1,38 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayoute from "../Layoutes/MainLayoute";
+
 import Home from "../Home/Home";
 import Login from "../Pages/Login";
 import DashboardLayout from "../Layoutes/DashboardLayout";
 import Analytics from "../Layoutes/Analytics";
+import App from "../../App";
+import FrontPages from "../FrontPgaes/FrontPages";
+import Landing from "../FrontPgaes/Landing";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayoute />,
+    element: <App />,
     children: [
       {
-        index: true,
+    path: "/",
         element: <Home />,
       },
       {
         path: "login",
         element: <Login />,
       },
+    ],
+  },
+  // frontPages Landing Page
+  {
+    path: "/front-pages",
+    element: <FrontPages />,
+    children: [
+      {
+        path: "landing",
+        element: <Landing />,
+      },
+     
     ],
   },
   {
